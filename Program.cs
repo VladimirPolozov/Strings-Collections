@@ -14,11 +14,11 @@ namespace StringsCollections {
         {"слво", "слово"},
         {"слвоо", "слово"},
       };
-      string userDirectoryPath; 
+      string userDirectoryPath;
       string oldPhoneNumberPattern = @"\((\d{3})\) (\d{3})-(\d{2})-(\d{2})"; // Например: (012) 345-67-89
       // string newPhoneNumberPattern = @"+380 $1 $2 $3 $4"; // не позволяет убрать 0
 
-      do { 
+      do {
         Console.Write("Введите абсолютный путь директории, файлы которой будут обработаны (пропустите, чтобы оставить по умолчанию): ");
         userDirectoryPath = Console.ReadLine();
         if (userDirectoryPath == "") {
@@ -50,7 +50,7 @@ namespace StringsCollections {
 
     static string changePhoneNumber(string input, Match match) {
       string phoneNumber = match.Value;
-      string phoneNumberInNewFormat = "+380 " + phoneNumber.Substring(2, 2) + " " + phoneNumber.Substring(6, 3) + " " + phoneNumber.Substring(10, 2) + " " + phoneNumber.Substring(13, 2);
+      string phoneNumberInNewFormat = "+38" + phoneNumber.Substring(1, 1) + " " + phoneNumber.Substring(2, 2) + " " + phoneNumber.Substring(6, 3) + " " + phoneNumber.Substring(10, 2) + " " + phoneNumber.Substring(13, 2);
 
       return input.Replace(match.Value, phoneNumberInNewFormat);
     }
